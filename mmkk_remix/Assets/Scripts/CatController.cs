@@ -230,7 +230,6 @@ public class CatController : MonoBehaviour
         //start jump
         if (doJump && onGround)
         {
-            Debug.Log("Jumped!");
             velocity.y = jumpVel;
             VerticalVelocitySave();
             doJump = false;
