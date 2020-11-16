@@ -14,10 +14,7 @@ public class CeilingCheck : MonoBehaviour
     {
         if (col.gameObject.tag != "Player" && col.gameObject.tag != "Attack" && col.gameObject.tag != "Rat")
         {
-            if (CatController.me.jumpDelay < CatController.me.jumpDuration)
-            {
-                CatController.me.onCeiling = true;
-            }
+            CatController.me.onCeiling = true;
         }
     }
 }

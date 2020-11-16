@@ -7646,13 +7646,14 @@ MonoBehaviour:
   onCeiling: 0
   gravity: 0.00325
   jumpAmount: 0
+  jumpAmountMin: 0.3
   JumpInput: 0
   doJump: 0
   jumpDuration: 0
   jumpVel: 0.1
   jumpVelMin: 0.075
   jumpVelMax: 0.3
-  jumpDelay: 0
+  jumpDelay: 1.5
   slider: {fileID: 554353970}
   slideImage: {fileID: 1982908258}
   slideStartColor: {r: 1, g: 1, b: 1, a: 0.16470589}

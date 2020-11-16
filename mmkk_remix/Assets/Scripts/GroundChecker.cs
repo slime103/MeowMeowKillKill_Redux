@@ -16,8 +16,9 @@ public class GroundChecker : MonoBehaviour
         {
             if (CatController.me.jumpDelay < CatController.me.jumpDuration)
             {
-                CatController.me.onGround = true;
+                
             }
+            CatController.me.onGround = true;
         }
     }
 

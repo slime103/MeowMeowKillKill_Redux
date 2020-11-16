@@ -25,7 +25,7 @@ public class CatController : MonoBehaviour
     public Vector3 velocity;
     public float speed;
 
-    [Header("GroundChecking")]
+    [Header("Ground/Ceiling Checking")]
     public bool onGround;
     public bool onCeiling;
 
@@ -35,6 +35,7 @@ public class CatController : MonoBehaviour
 
     [Header("Jump")]
     public float jumpAmount;
+    public float jumpAmountMin;
     public bool JumpInput;
     public bool doJump; //The frame the player will jump on
     public float jumpDuration;
@@ -77,16 +78,40 @@ public class CatController : MonoBehaviour
         mouseAxis = new Vector2(Input.GetAxis("Mouse X") * mouseSensitivity, Input.GetAxis("Mouse Y") * mouseSensitivity);
         moveAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            JumpInput = true;
+        }
+        else
+        {
+            if (jumpAmount > jumpAmountMin)
+            {
+                doJump = true;
+            }
+            else
+            {
+                JumpReset();
+            }
+            JumpInput = false;
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             JumpInput = true;
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && onGround)
         {
-            doJump = true;
+            if (jumpDuration > jumpDelay)
+            {
+                doJump = true;
+            }
+            else
+            {
+                JumpReset();
+            }
             JumpInput = false;
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -172,9 +197,14 @@ public class CatController : MonoBehaviour
         }
         else
         {
-            jumpAmount = 0;
-            jumpVel = 0;
+            JumpReset();
         }
+    }
+
+    void JumpReset()
+    {
+        jumpAmount = 0;
+        jumpVel = 0;
     }
 
     void VerticalVelocitySave()
@@ -200,6 +230,7 @@ public class CatController : MonoBehaviour
         //start jump
         if (doJump && onGround)
         {
+            Debug.Log("Jumped!");
             velocity.y = jumpVel;
             VerticalVelocitySave();
             doJump = false;
@@ -211,24 +242,28 @@ public class CatController : MonoBehaviour
         //Reached end of jump
         if (onCeiling)
         {
-            //jumpDuration = jumpLength;
+            velocity.y = 0;
+            VerticalVelocitySave();
+            onCeiling = false;
         }
 
-        if (jumpDuration < jumpDelay)
-        {
-            velocity.y = jumpVel;
-        }
+    
 
         //start falling
         if (!onGround)
         {
+            if (jumpDuration < jumpDelay)
+            {
+                velocity.y = jumpVel;
+            }
             velocity.y = savedVelocityY - gravity;
             jumpDuration += Time.fixedDeltaTime;
         }
         //If on ground then there is no vertical velocity
-        else if (!JumpInput && jumpDuration > jumpDelay)
+        else if (!JumpInput /*&& jumpDuration > jumpDelay*/)
         {
             velocity.y = 0;
+            jumpDuration = 0;
         }
     }
 
