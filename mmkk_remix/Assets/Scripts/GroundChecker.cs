@@ -14,10 +14,11 @@ public class GroundChecker : MonoBehaviour
     {
         if(col.gameObject.tag != "Player" && col.gameObject.tag != "Attack" && col.gameObject.tag != "Rat")
         {
-            if (CatController.me.jumpDelay < GameManager.me.timer)
+            if (CatController.me.jumpDelay < CatController.me.jumpDuration)
             {
-                CatController.me.onGround = true;
+                
             }
+            CatController.me.onGround = true;
         }
     }
 
