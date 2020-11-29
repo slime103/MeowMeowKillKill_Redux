@@ -11,6 +11,8 @@ public sealed class SonarPulsePPSSettings : PostProcessEffectSettings
 {
 	[Tooltip( "Screen" )]
 	public TextureParameter _MainTex = new TextureParameter {  };
+	[Tooltip( "Color 0" )]
+	public ColorParameter _Color0 = new ColorParameter { value = new Color(1f,1f,1f,0f) };
 }
 
 public sealed class SonarPulsePPSRenderer : PostProcessEffectRenderer<SonarPulsePPSSettings>
@@ -19,6 +21,7 @@ public sealed class SonarPulsePPSRenderer : PostProcessEffectRenderer<SonarPulse
 	{
 		var sheet = context.propertySheets.Get( Shader.Find( "SonarPulse" ) );
 		if(settings._MainTex.value != null) sheet.properties.SetTexture( "_MainTex", settings._MainTex );
+		sheet.properties.SetColor( "_Color0", settings._Color0 );
 		context.command.BlitFullscreenTriangle( context.source, context.destination, sheet, 0 );
 	}
 }
