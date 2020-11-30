@@ -4,42 +4,49 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public static GameManager me;
 
-    public bool mouseLock;
+    public bool levelStarted = false;
     public int timer;
+    public float secondTimer;
 
     public Text text;
 
-    public int ratNum;
+    [HideInInspector] public int ratNum = 1;
 
     void Awake()
     {
+        Debug.Log(GameManager.Instance);
         me = this;
-        if (mouseLock)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 
     void Update()
     {
-        if (ratNum == 0 && timer > 120)
+        // WIN GAME
+        if (levelStarted)
         {
-            text.gameObject.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.R))
+            if (ratNum == 0 && timer > 120)
             {
-                SceneManager.LoadScene("SampleScene");
+                LevelManager.Instance.LevelWon(true);
+                /*
+                text.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    SceneManager.LoadScene("SampleScene");
+                }
+            */
             }
+            secondTimer += Time.deltaTime;
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        timer++;
-        
+        if (levelStarted)
+        {
+            timer++;
+        }
     }
 }
