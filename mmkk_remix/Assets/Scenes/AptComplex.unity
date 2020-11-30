@@ -1642,7 +1642,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.102986746, b: 0, a: 1}
   m_Intensity: 50
-  m_Range: 29.192177
+  m_Range: 34.402412
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2450,7 +2450,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.102986746, b: 0, a: 1}
   m_Intensity: 50
-  m_Range: 19.751354
+  m_Range: 125.18561
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3655,7 +3655,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39b6743bfc01e0947b7c463503017037, type: 2}
+  - {fileID: 2100000, guid: a94be67b0b9fbf54ba3453dfa4317439, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3668,7 +3668,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -9985,7 +9985,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.102986746, b: 0, a: 1}
   m_Intensity: 50
-  m_Range: 22.103712
+  m_Range: 34.829582
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
