@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: 16134fc4dff9541419aa7f73ba79d549
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
     path: Assets/Scenes/AptComplex.unity
     guid: c28ac3f5dff522047a515427bfc17301
+  - enabled: 0
+    path: Assets/Scenes/OfficeOld.unity
+    guid: 8e6e1c220f692b24c86b8bb53554d6ab
   - enabled: 1
     path: Assets/Scenes/OfficeTest.unity
-    guid: 8e6e1c220f692b24c86b8bb53554d6ab
+    guid: 1999ef443efa8f947ba72feaf0f4f306
   m_configObjects: {}
